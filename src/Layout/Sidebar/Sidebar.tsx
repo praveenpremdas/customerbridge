@@ -17,6 +17,7 @@ export const SideBar = () => {
 
   return (
     <div className={`sidebar-wrapper ${toggleSidebar ? "close_icon" : ""}`} id="sidebar-wrapper">
+      {/* side bar logo */}
       <LogoWrapper />
       <nav className="sidebar-main">
         <div className={`left-arrow ${margin === 0 ? "disabled" : ""}`} onClick={() => dispatch(scrollToLeft())}><ArrowLeft /></div>

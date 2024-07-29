@@ -53,7 +53,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </div>
       </div>
-      <ThemeCustomizer />
+      {/* the side bar for customizations */}
+      {/* <ThemeCustomizer />  */}
       <ToastContainer />
       <TapTop />
     </Provider>
