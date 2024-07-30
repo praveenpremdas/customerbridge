@@ -2035,7 +2035,7 @@
                           &:hover {
                             > a {
                               &:hover {
-                                background-color: $light-sidebar-bg;
+                                background-color: #848884;
                                 transition: all 0.3s ease;
                               }
                             }
@@ -2046,7 +2046,6 @@
                           .sidebar-link:not(.active) {
                             &:hover {
                               svg {
-                                fill: rgba($primary-color, 0.1%);
                                 stroke: $white;
                                 transition: all 0.3s ease;
 
@@ -2369,7 +2368,6 @@
                             right: 0;
                             top: 50%;
                             transform: translateY(-50%);
-                            background-color: $primary-color;
                             border-radius: 5px 0px 0px 5px;
                             opacity: 0;
                             visibility: hidden;
@@ -2384,7 +2382,6 @@
                             transition: all 0.5s ease;
                             position: relative;
                             margin-bottom: 10px;
-                            background-color: $light-sidebar-bg;
 
                             &::after {
                               opacity: 1;
@@ -2595,7 +2592,6 @@
 
                       .sidebar-link {
                         &.active {
-                          background-color: rgba($primary-color, 0.2);
 
                           svg {
                             color: var(--theme-default);

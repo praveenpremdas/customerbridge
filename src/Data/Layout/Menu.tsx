@@ -13,7 +13,7 @@ export const MenuList: MenuItem[] | undefined = [
         type: "sub",
         active: false,
         children: [
-          { path: "/customers/customer_list", title: "Customer List", type: "link" },
+          { path: "/customers", title: "Customer List", type: "link" },
         ],
       },
     ]
