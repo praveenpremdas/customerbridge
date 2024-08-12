@@ -4,17 +4,19 @@ import { useAppDispatch, useAppSelector } from "@/Redux/Hooks";
 import { handleResponsiveToggle, setToggleSidebar } from "@/Redux/Reducers/LayoutSlice";
 import Link from "next/link";
 
+
 export const LogoWrapper = () => {
   const dispatch = useAppDispatch();
-  
+ 
   const { sidebarIconType } = useAppSelector((state) => state.themeCustomizer);
   const { toggleSidebar } = useAppSelector((state) => state.layout);
+
 
   return (
     <>
       <div className="logo-wrapper">
         <Link href={`/dashboard/default_dashboard`}>
-          <img className="img-fluid filter-logo-img" src={`${ImagePath}/logo/cb-logo-only-2.png`} alt="" />
+          <img className="img-fluid filter-logo-img-1" src={`${ImagePath}/logo/cb-logo.png`} alt="" />
         </Link>
         <div className="back-btn" onClick={() => dispatch(handleResponsiveToggle())}>
           <i className="fa fa-angle-left"></i>
@@ -31,3 +33,6 @@ export const LogoWrapper = () => {
     </>
   );
 };
+
+
+

@@ -1,5 +1,6 @@
 import { InputType } from "reactstrap/types/lib/Input";
 
+
 export interface OrderHistoryTableColumns {
   image: string;
   productName: string;
@@ -12,10 +13,12 @@ export interface OrderHistoryTableColumns {
   icon: JSX.Element;
 }
 
+
 export interface OrderHistoryImageType {
   name: string;
   tag?: string;
 }
+
 
 export interface FormGroupCommonProp {
   type: InputType;
@@ -24,22 +27,31 @@ export interface FormGroupCommonProp {
   rows?: number;
 }
 
+
 export interface SelectCommonProp {
   data: string[];
   size: number;
   selectClass?: string;
 }
 
+
+export interface CustomerProfileProps {
+  params: {
+    customerId: string;
+  };
+}
+
+
 export interface ProductListTableDataColumnType {
   image: string;
-  name: string;
-  sku: string;
-  category: string;
-  price: number;
-  quantity: number;
-  status: string;
-  rating: number;
+  fullName: string;
+  id: string;
+  age: number;
+  email: string;
+  phoneNumber: number;
+  nationality: string;
 }
+
 
 export interface ProductListTableProduct {
   images?: string;
@@ -47,10 +59,17 @@ export interface ProductListTableProduct {
   rate?: number;
 }
 
+
+export interface ActionListTableProduct {
+  id?: string;
+}
+
+
 interface VariantsInterface {
   color: string;
   images: string;
 }
+
 
 export interface ProductItemInterface {
   id: number;
@@ -72,15 +91,18 @@ export interface ProductItemInterface {
   rating: number;
 }
 
+
 export interface ProductSliceProp {
   filterToggle: boolean;
   productItem: ProductItemInterface[];
   symbol: string;
 }
 
+
 export interface ClothsDetailsTabContentProp {
   activeTab: number;
 }
+
 
 interface VariantsType {
   color: string;
@@ -108,6 +130,7 @@ export interface CartType {
   tags: string[];
 }
 
+
 interface ValueInterface {
   min: number;
   max: number;
@@ -121,6 +144,7 @@ export interface FilterInterface {
   brand: string[];
 }
 
+
 interface CommonProductSlideData {
   rowClass?: string;
   image: string;
@@ -128,14 +152,17 @@ interface CommonProductSlideData {
   text: string;
 }
 
+
 export interface CommonProductSlideProp {
   data: CommonProductSlideData;
 }
+
 
 export interface CartSliceProp {
   cart: CartType[];
   tax: number;
 }
+
 
 export interface HoverButtonsProp {
   item: ProductItemInterface;
@@ -143,9 +170,11 @@ export interface HoverButtonsProp {
   setOpenModal: (key: boolean) => void;
 }
 
+
 export interface ProductDetailsProp {
   item: ProductItemInterface;
 }
+
 
 export interface ProductModalInterfaceType {
   value: boolean;
@@ -153,33 +182,40 @@ export interface ProductModalInterfaceType {
   dataId: undefined | number;
 }
 
+
 export interface ModalProductDetailsProp {
   singleProduct: ProductItemInterface;
 }
+
 
 export interface ModalQuantityProp {
   quantity: number;
   setQuantity: (key: number) => void;
 }
 
+
 export interface ModalButtonsProp {
   singleProduct: ProductItemInterface;
   quantity: number;
 }
 
+
 export interface CartQuantityButtonProp {
   item: CartType;
 }
 
+
 export interface InvoicePrintType {
   handlePrint?: () => void;
 }
+
 
 export interface AddProductSliceType {
   navId: number;
   tabId: number;
   formValue: any;
 }
+
 
 export interface CheckoutFormType {
   firstName: string;
@@ -192,3 +228,4 @@ export interface CheckoutFormType {
   pincode: string;
   chech: boolean;
 }
+

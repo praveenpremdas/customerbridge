@@ -1,16 +1,21 @@
 import { InputType } from "reactstrap/types/lib/Input";
 
+
 export interface CommonUserFooterType {
   listClass?: string;
 }
+
 
 export interface CommonUserFormGroupType {
   title: string;
   placeholder?: string;
   type: InputType;
-  defaultValue?:string
+  defaultValue?:string|number|Date
   row?:number;
+  isDisabled:boolean;
+  feildName:string;
 }
+
 
 export interface userCardTypes {
   id: number;
@@ -23,6 +28,8 @@ export interface userCardTypes {
   totalPost: string;
 }
 
+
 export interface UserCardsFooterProp {
   item: userCardTypes;
 }
+
