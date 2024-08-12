@@ -4,10 +4,12 @@ import { setFilterToggle } from "@/Redux/Reducers/ProductSlice";
 import Link from "next/link";
 import { Filter } from "react-feather";
 
+
 export const ProductListFilterHeader = () => {
-  
+ 
   const { filterToggle } = useAppSelector((state) => state.product);
   const dispatch = useAppDispatch();
+
 
   return (
     <div>
@@ -17,10 +19,14 @@ export const ProductListFilterHeader = () => {
           <i className={`icon-close filter-close ${filterToggle ? "show" : "hide"}`} />
         </a>
       </div>
-      <Link className="btn btn-primary" href={`/ecommerce/add_product`}>
+      {/* if needed we can add add customer button here */}
+      {/* <Link className="btn btn-primary" href={`/ecommerce/add_product`}>
         <i className="fa fa-plus" />
         {AddProduct}
-      </Link>
+      </Link> */}
     </div>
   );
 };
+
+
+

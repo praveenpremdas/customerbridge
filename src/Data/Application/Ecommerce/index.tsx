@@ -2,11 +2,12 @@ import RatioImage from "@/CommonComponent/RatioImage";
 import SVG from "@/CommonComponent/SVG";
 import { Href, ImagePath } from "@/Constant";
 import { useAppSelector } from "@/Redux/Hooks";
-import { OrderHistoryImageType, OrderHistoryTableColumns, ProductListTableDataColumnType, ProductListTableProduct } from "@/Types/EcommerceType";
+import { OrderHistoryImageType, OrderHistoryTableColumns, ProductListTableDataColumnType, ProductListTableProduct, ActionListTableProduct } from "@/Types/EcommerceType";
 import Link from "next/link";
 import { Clock, CreditCard, Gift, MoreVertical, Truck } from "react-feather";
 import { Rating } from "react-simple-star-rating";
 import { Badge } from "reactstrap";
+
 
 export const BecomeMemberData = [
   {
@@ -31,6 +32,7 @@ export const BecomeMemberData = [
   },
 ];
 
+
 export const SimplePricingData = [
   {
     title: "Standard",
@@ -53,6 +55,7 @@ export const SimplePricingData = [
     plan: "Extra Plan",
   },
 ];
+
 
 export const WhishListProduct = [
   {
@@ -117,6 +120,7 @@ export const WhishListProduct = [
   },
 ];
 
+
 export const OrderData = [
   {
     id: 1,
@@ -165,6 +169,7 @@ export const OrderData = [
   },
 ];
 
+
 export const OrderHistoryData = [
   {
     image: "15.png",
@@ -200,6 +205,7 @@ export const OrderHistoryData = [
     icon: <MoreVertical />,
   },
 
+
   {
     image: "4.png",
     productName: "Man shoes",
@@ -211,6 +217,7 @@ export const OrderHistoryData = [
     price: "$18",
     icon: <MoreVertical />,
   },
+
 
   {
     image: "2.png",
@@ -280,9 +287,11 @@ export const OrderHistoryData = [
   },
 ];
 
+
 const OrderHistoryImage: React.FC<OrderHistoryImageType> = ({ name }) => {
   return <img className="img-fluid img-30 my-3 rounded-3" src={`${ImagePath}/product/${name}`} alt="#" />;
 };
+
 
 const OrderDataHistory: React.FC<OrderHistoryImageType> = ({ name, tag }) => {
   return (
@@ -295,6 +304,7 @@ const OrderDataHistory: React.FC<OrderHistoryImageType> = ({ name, tag }) => {
     </div>
   );
 };
+
 
 export const OrderHistoryDataColumn = [
   {
@@ -344,6 +354,7 @@ export const OrderHistoryDataColumn = [
   },
 ];
 
+
 export const FiltersData = [
   {
     name: "Choose Product",
@@ -367,281 +378,260 @@ export const FiltersData = [
   },
 ];
 
+
 export const ProductListTableData = [
   {
     image: "product_list/product-categories/laptop.png",
-    name: "Apple Desktop 2023",
-    sku: "02145YK796",
-    category: "Laptops",
-    price: 56000.0,
-    quantity: 13,
-    status: "Sold Out",
-    rating: 4,
-  },
-  {
-    image: "product_list/product-categories/phone.png",
-    name: "Apple iphone 13 Pro",
-    sku: "56379FG3AW",
-    category: "Smart Phones",
-    price: 19000.0,
-    quantity: 48,
-    status: "In Stock",
-    rating: 3,
-  },
-  {
-    image: "product_list/product-categories/headphone.png",
-    name: "Headphones",
-    sku: "33KR5689B1",
-    category: "Smart Headphones",
-    price: 10000.0,
-    quantity: 5,
-    status: "In Stock",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/wireless-headphone.png",
-    name: "Wireless-headphone",
-    sku: "AD6789HEY0",
-    category: "Smart Headphones",
-    price: 15000.0,
-    quantity: 4,
-    status: "Sold Out",
-    rating: 4,
-  },
-  {
-    image: "product_list/product-categories/1.png",
-    name: "Wood Chair",
-    sku: "456DF78DFQ",
-    category: "Furniture",
-    price: 99000.0,
-    quantity: 2,
-    status: "Sold Out",
-    rating: 5,
-  },
-  {
-    image: "email-template/3.png",
-    name: "Wood Chair",
-    sku: "5633GD3K54",
-    category: "Furniture",
-    price: 1000.0,
-    quantity: 8,
-    status: "Sold Out",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/ipad.png",
-    name: "MacBook Air 13.3-inch",
-    sku: "589KO8PPQ8",
-    category: "Laptops",
-    price: 45000.0,
-    quantity: 10,
-    status: "Sold Out",
-    rating: 4,
-  },
-  {
-    image: "product_list/product-categories/mouse.png",
-    name: "M185 Compact Wireless Mouse",
-    sku: "02145YK796",
-    category: "E-Commerce",
-    price: 56000.0,
-    quantity: 13,
-    status: "Sold Out",
-    rating: 3,
-  },
-  {
-    image: "other-images/cart-img.jpg",
-    name: "Wood chairs",
-    sku: "568GH3LLQ2",
-    category: "Furniture",
-    price: 78000.0,
-    quantity: 50,
-    status: "In Stock",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/watch.png",
-    name: "Smart watch",
-    sku: "58FR7K34F6",
-    category: "Electric",
-    price: 25000.0,
-    quantity: 48,
-    status: "Sold Out",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/dvd.png",
-    name: "DVD",
-    sku: "HG5667DFQ1",
-    category: "Electric",
-    price: 5600.0,
-    quantity: 10,
-    status: "In Stock",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/speaker.png",
-    name: "Speakers",
-    sku: "02145YK796",
-    category: "Electric",
-    price: 12200.0,
-    quantity: 50,
-    status: "Sold Out",
-    rating: 4,
-  },
-  {
-    image: "product_list/product-categories/phone.png",
-    name: "Apple iphone 13 Pro",
-    sku: "56379FG3AW",
-    category: "Smart Phones",
-    price: 19000.0,
-    quantity: 48,
-    status: "In Stock",
-    rating: 3,
-  },
-  {
-    image: "product_list/product-categories/headphone.png",
-    name: "Headphones",
-    sku: "33KR5689B1",
-    category: "Smart Headphones",
-    price: 10000.0,
-    quantity: 5,
-    status: "In Stock",
-    rating: 5,
-  },
-  {
-    image: "other-images/cart-img.jpg",
-    name: "Wood chairs",
-    sku: "568GH3LLQ2",
-    category: "Furniture",
-    price: 78000.0,
-    quantity: 50,
-    status: "In Stock",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/watch.png",
-    name: "Smart watch",
-    sku: "58FR7K34F6",
-    category: "Electric",
-    price: 25000.0,
-    quantity: 48,
-    status: "Sold Out",
-    rating: 4,
-  },
-  {
-    image: "product_list/product-categories/phone.png",
-    name: "Apple iphone 13 Pro",
-    sku: "56379FG3AW",
-    category: "Smart Phones",
-    price: 19000.0,
-    quantity: 48,
-    status: "In Stock",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/headphone.png",
-    name: "Headphones",
-    sku: "33KR5689B1",
-    category: "Smart Headphones",
-    price: 10000.0,
-    quantity: 5,
-    status: "In Stock",
-    rating: 3,
-  },
-  {
-    image: "product_list/product-categories/wireless-headphone.png",
-    name: "Wireless-headphone",
-    sku: "AD6789HEY0",
-    category: "Smart Headphones",
-    price: 15000.0,
-    quantity: 4,
-    status: "Sold Out",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/1.png",
-    name: "Wood Chair",
-    sku: "456DF78DFQ",
-    category: "Furniture",
-    price: 99000.0,
-    quantity: 2,
-    status: "Sold Out",
-    rating: 4,
-  },
-  {
-    image: "email-template/3.png",
-    name: "Wood Chair",
-    sku: "5633GD3K54",
-    category: "Furniture",
-    price: 1000.0,
-    quantity: 8,
-    status: "Sold Out",
-    rating: 3,
-  },
-  {
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
     image: "product_list/product-categories/laptop.png",
-    name: "Apple Desktop 2023",
-    sku: "02145YK796",
-    category: "Laptops",
-    price: 56000.0,
-    quantity: 13,
-    status: "Sold Out",
-    rating: 4,
-  },
-  {
-    image: "product_list/product-categories/phone.png",
-    name: "Apple iphone 13 Pro",
-    sku: "56379FG3AW",
-    category: "Smart Phones",
-    price: 19000.0,
-    quantity: 48,
-    status: "In Stock",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/headphone.png",
-    name: "Headphones",
-    sku: "33KR5689B1",
-    category: "Smart Headphones",
-    price: 10000.0,
-    quantity: 5,
-    status: "In Stock",
-    rating: 5,
-  },
-  {
-    image: "product_list/product-categories/wireless-headphone.png",
-    name: "Wireless-headphone",
-    sku: "AD6789HEY0",
-    category: "Smart Headphones",
-    price: 15000.0,
-    quantity: 4,
-    status: "Sold Out",
-    rating: 4,
-  },
-  {
-    image: "product_list/product-categories/1.png",
-    name: "Wood Chair",
-    sku: "456DF78DFQ",
-    category: "Furniture",
-    price: 99000.0,
-    quantity: 2,
-    status: "Sold Out",
-    rating: 2,
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
+  },{
+    image: "product_list/product-categories/laptop.png",
+    name: 'string',
+    id: 'string',
+    age: 'number',
+    email: 'string',
+    phone: 'number',
+    country: 'string',
   },
 ];
 
-const ProductListTableAction = () => {
-  
+
+const ProductListTableAction: React.FC<ActionListTableProduct> = ({ id }) => {
+
+
+
 
   return (
     <div className="product-action">
-      <Link href={`/ecommerce/add_product`}>
+      <Link href={`/customers/` + id}>
         <SVG iconId="edit-content" />
       </Link>
-      <SVG iconId="trash1" />
+      {/* delete buttom for cutomer list  */}
+      {/* <SVG iconId="trash1" /> */}
     </div>
   );
 };
+
 
 const ProductListTableProductName: React.FC<ProductListTableProduct> = ({ images, name }) => {
   return (
@@ -654,6 +644,7 @@ const ProductListTableProductName: React.FC<ProductListTableProduct> = ({ images
   );
 };
 
+
 const ProductListTableStatus: React.FC<ProductListTableProduct> = ({ name }) => {
   return (
     <Badge color="" className={`badge-light-${name === "Sold Out" ? "secondary" : "primary"}`}>
@@ -662,50 +653,87 @@ const ProductListTableStatus: React.FC<ProductListTableProduct> = ({ name }) => 
   );
 };
 
+
 const ProductListTableRating: React.FC<ProductListTableProduct> = ({ rate }) => {
   return <Rating initialValue={rate} size={17} fillColor="#D77748" />;
 };
 
+
 export const ProductListTableDataColumn = [
   {
-    name: "Product Name",
-    cell: (row: ProductListTableDataColumnType) => <ProductListTableProductName images={row.image} name={row.name} />,
+    name: "Profile",
+    cell: (row: ProductListTableDataColumnType) => <ProductListTableProductName images={row.image} name={row.fullName} />,
     sortable: true,
     grow: 2,
   },
   {
-    name: "SKU",
-    selector: (row: ProductListTableDataColumnType) => `${row.sku}`,
-    sortable: true,
+    name: "Id",
+    selector: (row: ProductListTableDataColumnType) => `${row.id}`,
   },
   {
-    name: "Category",
-    selector: (row: ProductListTableDataColumnType) => `${row.category}`,
-    sortable: true,
+    name: "Age",
+    selector: (row: ProductListTableDataColumnType) => `${row.age}`,
   },
   {
-    name: "Price",
-    selector: (row: ProductListTableDataColumnType) => `${row.price}`,
-    sortable: true,
+    name: "Email",
+    cell: (row: ProductListTableDataColumnType) => `${row.email}`,
   },
   {
-    name: "Qty",
-    selector: (row: ProductListTableDataColumnType) => `${row.quantity}`,
-    sortable: true,
+    name: "Phone",
+    cell: (row: ProductListTableDataColumnType) => `${row.phoneNumber}`,
   },
   {
-    name: "Status",
-    cell: (row: ProductListTableDataColumnType) => <ProductListTableStatus name={row.status} />,
-  },
-  {
-    name: "Rating",
-    cell: (row: ProductListTableDataColumnType) => <ProductListTableRating rate={row.rating} />,
+    name: "Country",
+    cell: (row: ProductListTableDataColumnType) => `${row.nationality}`,
   },
   {
     name: "Action",
-    cell: () => <ProductListTableAction />,
+    cell: (row: ProductListTableDataColumnType) => <ProductListTableAction id={row.id} />,
   },
 ];
+
+
+// export const ProductListTableDataColumn_Old = [
+//   {
+//     name: "Product Name",
+//     cell: (row: ProductListTableDataColumnType) => <ProductListTableProductName images={row.image} name={row.name} />,
+//     sortable: true,
+//     grow: 2,
+//   },
+//   {
+//     name: "SKU",
+//     selector: (row: ProductListTableDataColumnType) => `${row.sku}`,
+//     sortable: true,
+//   },
+//   {
+//     name: "Category",
+//     selector: (row: ProductListTableDataColumnType) => `${row.category}`,
+//     sortable: true,
+//   },
+//   {
+//     name: "Price",
+//     selector: (row: ProductListTableDataColumnType) => `${row.price}`,
+//     sortable: true,
+//   },
+//   {
+//     name: "Qty",
+//     selector: (row: ProductListTableDataColumnType) => `${row.quantity}`,
+//     sortable: true,
+//   },
+//   {
+//     name: "Status",
+//     cell: (row: ProductListTableDataColumnType) => <ProductListTableStatus name={row.status} />,
+//   },
+//   {
+//     name: "Rating",
+//     cell: (row: ProductListTableDataColumnType) => <ProductListTableRating rate={row.rating} />,
+//   },
+//   {
+//     name: "Action",
+//     cell: () => <ProductListTableAction />,
+//   },
+// ];
+
 
 export const ProductSocialLinks = [
   {
@@ -730,6 +758,7 @@ export const ProductSocialLinks = [
   },
 ];
 
+
 export const ProductBrandData = [
   {
     icon: <Truck />,
@@ -752,6 +781,7 @@ export const ProductBrandData = [
     span: "Contrary To Popular Belief. ",
   },
 ];
+
 
 export const FilterProductData = [
   {
@@ -776,6 +806,7 @@ export const FilterProductData = [
   },
 ];
 
+
 export const ProductSliderOne = [
   {
     image: "01.jpg",
@@ -794,6 +825,7 @@ export const ProductSliderOne = [
     text: "$200.00",
   },
 ];
+
 
 export const ProductSliderTwo = [
   {
@@ -815,7 +847,9 @@ export const ProductSliderTwo = [
   },
 ];
 
+
 export const InvoiceHeaderData = ["Product", "Quantity", "Price", "Unit", "Vat %", "Total"];
+
 
 export const InvoiceTwoDataList = [
   {
@@ -860,7 +894,9 @@ export const InvoiceTwoDataList = [
   },
 ];
 
+
 export const InvoiceSixTable = ["Item Description", "Hours", "Rate", "SubTotal"];
+
 
 export const InvoiceSixData = [
   {
@@ -893,7 +929,9 @@ export const InvoiceSixData = [
   },
 ];
 
+
 export const InvoiceThreeHeader = ["Description", "Qty", "Price", "Subtotal"];
+
 
 export const InvoiceThreeData = [
   {
@@ -930,6 +968,7 @@ export const InvoiceThreeData = [
   },
 ];
 
+
 export const InvoiceFourDetails = [
   {
     title: "Date",
@@ -949,7 +988,9 @@ export const InvoiceFourDetails = [
   },
 ];
 
+
 export const InvoiceTableHeader = ["Description", "Unite Price", "Quantity", "Subtotal"];
+
 
 export const InvoiceFourData = [
   {
@@ -981,6 +1022,7 @@ export const InvoiceFourData = [
     total: "100",
   },
 ];
+
 
 export const AddProductNav = [
   {
@@ -1015,7 +1057,9 @@ export const AddProductNav = [
   },
 ];
 
+
 export const MultiWithHeaderData = [{ name: "NBA Teams", header: true }, { name: "Boston Celtics" }, { name: "Dallas Mavericks" }, { name: "Brooklyn Nets" }, { name: "Houston Rockets" }, { name: "New York Knicks" }, { name: "Memphis Grizzlies" }, { name: "Philadelphia 76ers" }, { name: "New Orleans Hornets" }, { name: "Toronto Raptors" }, { name: "San Antonio Spurs" }, { name: "Chicago Bulls" }, { name: "Denver Nuggets" }, { name: "Cleveland Cavaliers" }, { name: "Minnesota Timberwolves" }, { name: "Detroit Pistons" }, { name: "Portland Trail Blazers" }, { name: "Indiana Pacers" }, { name: "Oklahoma City Thunder" }, { name: "Milwaukee Bucks" }, { name: "Utah Jazz" }, { name: "Atlanta Hawks" }, { name: "Golden State Warriors" }, { name: "Charlotte Bobcats" }, { name: "Los Angeles Clippers" }, { name: "Miami Heat" }, { name: "Los Angeles Lakers" }, { name: "Orlando Magic" }, { name: "Phoenix Suns" }, { name: "Washington Wizards" }, { name: "Sacramento King" }, { name: "", divider: true }, { name: "NHL Teams", header: true }, { name: "Boston Celtics" }, { name: "Dallas Mavericks" }, { name: "Brooklyn Nets" }, { name: "Houston Rockets" }, { name: "New York Knicks" }, { name: "Memphis Grizzlies" }, { name: "Philadelphia 76ers" }, { name: "New Orleans Hornets" }, { name: "Toronto Raptors" }, { name: "San Antonio Spurs" }, { name: "Chicago Bulls" }, { name: "Denver Nuggets" }, { name: "Cleveland Cavaliers" }, { name: "Minnesota Timberwolves" }, { name: "Detroit Pistons" }, { name: "Portland Trail Blazers" }, { name: "Indiana Pacers" }, { name: "Oklahoma City Thunder" }, { name: "Milwaukee Bucks" }, { name: "Utah Jazz" }, { name: "Atlanta Hawks" }, { name: "Golden State Warriors" }, { name: "Charlotte Bobcats" }, { name: "Los Angeles Clippers" }, { name: "Miami Heat" }, { name: "Los Angeles Lakers" }, { name: "Orlando Magic" }, { name: "Phoenix Suns" }, { name: "Washington Wizards" }, { name: "Sacramento King" }];
+
 
 export const TypesOfProductData = [
   {
@@ -1041,4 +1085,8 @@ export const TypesOfProductData = [
   },
 ];
 
+
 export const ProductFiveNavData = ["Inventory", "Additional Options", "Shipping"];
+
+
+

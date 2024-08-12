@@ -19,6 +19,9 @@ import ProjectSlice from "./Reducers/ProjectSlice";
 import TaskSlice from "./Reducers/TaskSlice";
 import ThemeCustomizerSlice from "./Reducers/ThemeCustomizerSlice";
 import ToDoSlice from "./Reducers/ToDoSlice";
+import profileReducer from './Reducers/ProfileSlice';
+import customerReducer from "./Reducers/CustomerSclice"
+
 
 const Store = configureStore({
   reducer: {
@@ -42,6 +45,8 @@ const Store = configureStore({
     headerBookMark: HeaderBookmarkSlice,
     themeCustomizer: ThemeCustomizerSlice,
     addProduct: AddProductSlice,
+    profile: profileReducer,
+    customer: customerReducer
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -49,7 +54,12 @@ const Store = configureStore({
     }),
 });
 
+
 export default Store;
+
 
 export type RootState = ReturnType<typeof Store.getState>;
 export type AppDispatch = typeof Store.dispatch;
+
+
+

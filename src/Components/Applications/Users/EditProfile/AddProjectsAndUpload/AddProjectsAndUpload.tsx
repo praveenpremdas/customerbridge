@@ -1,25 +1,73 @@
-import { Card, Col, Table } from "reactstrap";
-import AddProjectsAndUploadTableBody from "./AddProjectsAndUploadTableBody";
-import { AddProjectAndUpload } from "@/Constant";
-import CommonCardHeader from "@/CommonComponent/CommonCardHeader";
+import React from 'react';
+import { Card, Col, Table } from 'reactstrap';
+import AddProjectsAndUploadTableBody from './AddProjectsAndUploadTableBody';
+import CommonCardHeader from '@/CommonComponent/CommonCardHeader';
+import { useAppSelector } from "@/Redux/Hooks";
 
-const AddProjectsAndUpload = () => {
+
+// Define the type for the config object
+interface Config {
+  [key: string]: {
+    tableHead: string[];
+    buttons: string[];
+  };
+}
+
+
+// Define the type for props
+interface AddProjectsAndUploadProps {
+  props: {
+    title: string;
+    content: any;
+    config: string;
+  }
+}
+
+
+// Define the config object with type
+const config: Config = {
+  contactNumbers: {
+    tableHead: ['Type', 'Number'],
+    buttons: ['edit'],
+  },
+  addresses: {
+    tableHead: ['Type', 'Street', 'City', 'State', 'PostalCode','Country'],
+    buttons: ['edit'],
+  },
+  preferences: {
+    tableHead: ['Type', 'Value'],
+    buttons: ['edit'],
+  },
+  socialMediaProfiles: {
+    tableHead: ['Platform', 'ProfileUrl'],
+    buttons: ['edit'],
+  },
+  tags: {
+    tableHead: ['Name'],
+    buttons: ['edit'],
+  },
+};
+
+
+const AddProjectsAndUpload: React.FC<AddProjectsAndUploadProps> = ({ props }: any) => {
+  // Check if the configKey exists in config and get tableHead
+  const tableHead = config[props.config]?.tableHead ?? [];
+ 
   return (
     <Col md="12">
       <Card>
-        <CommonCardHeader title={AddProjectAndUpload} />
+        <CommonCardHeader title={props.title} />
         <div className="table-responsive theme-scrollbar">
           <Table className="card-table table-vcenter text-nowrap">
             <thead>
               <tr>
-                <th>ProjectName</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Price</th>
+                {tableHead.map((heading, index) => (
+                  <th key={index}>{heading}</th>
+                ))}
                 <th />
               </tr>
             </thead>
-            <AddProjectsAndUploadTableBody />
+            <AddProjectsAndUploadTableBody props={{content: props.content, config: props.config}} />
           </Table>
         </div>
       </Card>
@@ -27,4 +75,8 @@ const AddProjectsAndUpload = () => {
   );
 };
 
+
 export default AddProjectsAndUpload;
+
+
+

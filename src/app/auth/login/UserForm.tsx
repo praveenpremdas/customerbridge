@@ -9,22 +9,26 @@ import imageOne from "../../../../public/assets/images/logo/logo.png";
 import imageTwo from "../../../../public/assets/images/logo/logo_dark.png";
 import UserSocialApp from "./UserSocialApp";
 
+
 const UserForm = () => {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("test123@gmail.com");
   const [password, setPassword] = useState("Test@123");
   const router = useRouter();
 
+
   const formSubmitHandle = () => {
     window.location.reload();
     if (email == "test123@gmail.com" && password == "Test@123") {
       Cookies.set("mofi_token", JSON.stringify(true));
-      router.push(`/dashboard/default_dashboard`);
+      router.push(`/customers`);
       toast.success("login successful");
     } else {
       alert("Please Enter Valid Email Or Password");
     }
   };
+
+
 
 
   return (
@@ -70,3 +74,4 @@ const UserForm = () => {
   );
 };
 export default UserForm;
+

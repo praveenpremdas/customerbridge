@@ -1,16 +1,31 @@
 import { SearchTableButton } from "@/Constant";
 import { ProductListTableData, ProductListTableDataColumn } from "@/Data/Application/Ecommerce";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { Card, CardBody, Col, Container, Input, Label, Row } from "reactstrap";
 import { CollapseFilterData } from "./CollapseFilterData";
 import { ProductListFilterHeader } from "./ProductListFilterHeader";
+import axios from 'axios';
+
 
 const ProductListContainer = () => {
   const [filterText, setFilterText] = useState("");
+  const [filteredItems, setfilteredItems] = useState([]);
 
-  const filteredItems = ProductListTableData.filter((item) => item.category && item.category.toLowerCase().includes(filterText.toLowerCase()));
 
+  const fetch = async () => {
+    const response = await axios.get('http://3.111.179.125:8080/api/customers?page=0&size=10');
+    setfilteredItems(response.data.content);
+    console.log(response,'response')
+  }
+
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
+
+  // const filteredItems = ProductListTableData.filter((item) => item.category && item.category.toLowerCase().includes(filterText.toLowerCase()));
   const subHeaderComponentMemo = useMemo(() => {
     return (
       <div className="dataTables_filter d-flex align-items-center">
@@ -19,6 +34,7 @@ const ProductListContainer = () => {
       </div>
     );
   }, [filterText]);
+
 
   return (
     <Container fluid>
@@ -43,4 +59,8 @@ const ProductListContainer = () => {
   );
 };
 
+
 export default ProductListContainer;
+
+
+
