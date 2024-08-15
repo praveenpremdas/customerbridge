@@ -1,3 +1,6 @@
+export const AUTH_API_BASE_URL = "http://65.1.125.191:8084/";
+export const CRM_API_BASE_URL = "http://65.1.125.191:8080/api/";
+
 export const Href = "#javascript";
 export const ImagePath = "/assets/images";
 export const StarColor = "var(--theme-default)";

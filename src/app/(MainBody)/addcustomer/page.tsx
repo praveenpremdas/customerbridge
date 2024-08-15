@@ -8,7 +8,6 @@ import { toggleEditFalse } from "@/Redux/Reducers/ProfileSlice";
 
 const CustomerProfile: React.FC<CustomerProfileProps> = () => {
 
-
     const dispatch = useAppDispatch();
     const isProfileEditDisabled = useAppSelector((state) => state.profile.isProfileEditDisabled);
     const [customer, setCustomer] = useState({
