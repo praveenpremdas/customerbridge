@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Input } from "reactstrap";
 import { Delete, Edit, Href, Update } from "@/Constant";
 import { useAppDispatch, useAppSelector } from "@/Redux/Hooks";
-import { updateNestedField, Customer } from "@/Redux/Reducers/CustomerSclice";
+import { updateCustomerField, updateNestedField, Customer } from "@/Redux/Reducers/CustomerSclice";
 
 
 // Define the type for the data items
@@ -22,6 +22,7 @@ interface AddProjectsAndUploadTableBodyProps {
 
 const AddProjectsAndUploadTableBody: React.FC<AddProjectsAndUploadTableBodyProps> = ({ props }) => {
   const isProfileEditDisabled = useAppSelector((state) => state.profile.isProfileEditDisabled);
+  const editCustomer = useAppSelector<any>((state) => state.customer.customer);
   const dispatch = useAppDispatch();
 
 
@@ -35,9 +36,9 @@ const AddProjectsAndUploadTableBody: React.FC<AddProjectsAndUploadTableBodyProps
     <tbody>
       {props && props.content ? (
         props.content.map((data: any, index: number) => (
-          <tr key={index}>
+          <tr key={index} data-obj={data}>
             {/* Generate <td> elements based on the data object's keys and values */}
-            {Object.entries(data).map(([key, value], idx) => (
+            {Object.entries(data).map(([key, value]:any, idx) => (
               <td key={idx}>
                 <Input
                   type="text"
@@ -74,6 +75,3 @@ const AddProjectsAndUploadTableBody: React.FC<AddProjectsAndUploadTableBodyProps
 
 
 export default AddProjectsAndUploadTableBody;
-
-
-

@@ -62,7 +62,7 @@ const AddProjectsAndUpload: React.FC<AddProjectsAndUploadProps> = ({ props }: an
             <thead>
               <tr>
                 {tableHead.map((heading, index) => (
-                  <th key={index}>{heading}</th>
+                  <th key={index} data-key={heading}>{heading}</th>
                 ))}
                 <th />
               </tr>
@@ -77,6 +77,3 @@ const AddProjectsAndUpload: React.FC<AddProjectsAndUploadProps> = ({ props }: an
 
 
 export default AddProjectsAndUpload;
-
-
-

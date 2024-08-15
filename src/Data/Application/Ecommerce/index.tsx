@@ -1,12 +1,14 @@
 import RatioImage from "@/CommonComponent/RatioImage";
 import SVG from "@/CommonComponent/SVG";
 import { Href, ImagePath } from "@/Constant";
-import { useAppSelector } from "@/Redux/Hooks";
+import { useAppDispatch, useAppSelector } from "@/Redux/Hooks";
 import { OrderHistoryImageType, OrderHistoryTableColumns, ProductListTableDataColumnType, ProductListTableProduct, ActionListTableProduct } from "@/Types/EcommerceType";
 import Link from "next/link";
 import { Clock, CreditCard, Gift, MoreVertical, Truck } from "react-feather";
 import { Rating } from "react-simple-star-rating";
 import { Badge } from "reactstrap";
+import axios from 'axios';
+import { updatePagenationPageSize } from "@/Redux/Reducers/CustomerCommon";
 
 
 export const BecomeMemberData = [
@@ -388,7 +390,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -396,7 +398,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -404,7 +406,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -412,7 +414,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -420,7 +422,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -428,7 +430,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -436,7 +438,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -444,7 +446,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -452,7 +454,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -460,7 +462,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -468,7 +470,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -476,7 +478,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -484,7 +486,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -492,7 +494,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -500,7 +502,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -508,7 +510,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -516,7 +518,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -524,7 +526,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -532,7 +534,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -540,7 +542,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -548,7 +550,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -556,7 +558,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -564,7 +566,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -572,7 +574,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -580,7 +582,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -588,7 +590,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -596,7 +598,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -604,7 +606,7 @@ export const ProductListTableData = [
     email: 'string',
     phone: 'number',
     country: 'string',
-  },{
+  }, {
     image: "product_list/product-categories/laptop.png",
     name: 'string',
     id: 'string',
@@ -617,9 +619,20 @@ export const ProductListTableData = [
 
 
 const ProductListTableAction: React.FC<ActionListTableProduct> = ({ id }) => {
+  const dispatch = useAppDispatch();
+  const pagenationPageSize = useAppSelector((state) => state.customerCommon.pagenationPageSize);
 
-
-
+  const handleCustomerDelete = async (id:any) => {
+    try {
+      const response = await axios.delete(`http://13.234.117.94:8080/api/customers/` + id);
+      if (response.status == 204){
+        dispatch(updatePagenationPageSize(pagenationPageSize-1));
+      }
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="product-action">
@@ -627,7 +640,9 @@ const ProductListTableAction: React.FC<ActionListTableProduct> = ({ id }) => {
         <SVG iconId="edit-content" />
       </Link>
       {/* delete buttom for cutomer list  */}
-      {/* <SVG iconId="trash1" /> */}
+      <div onClick={(e)=>handleCustomerDelete(id)}>
+        <SVG iconId="trash1" />
+      </div>
     </div>
   );
 };
@@ -1087,6 +1102,3 @@ export const TypesOfProductData = [
 
 
 export const ProductFiveNavData = ["Inventory", "Additional Options", "Shipping"];
-
-
-

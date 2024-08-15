@@ -33,19 +33,24 @@ const EditProfileContainer: React.FC<{ props: any }> = ({ props }) => {
     if (isAddCustomer) {
       // endponit to create customer
       console.log(editCustomer)
-      const response = await axios.post('http://3.111.179.125:8080/api/customers', {...editCustomer});
-      console.log(response,'response')
+      const response = await axios.post('http://13.234.117.94:8080/api/customers', {...editCustomer});
+      console.log(response)
+      if (response.status == 201 && response.data && response.data.id) {
+        router.push('/customers')
+      } else {
+        alert('error')
+      }
     } else {
       // endponit to edit customer
-      console.log(editCustomer)
       try {
-        const response = await axios.put('http://3.111.179.125:8080/api/customers/' + props.id, {...editCustomer});
-
-
+        const response = await axios.put('http://13.234.117.94:8080/api/customers/' + props.id, {...editCustomer});
+        if (response.status == 200 && response.data && response.data.id) {
+          dispatch(toggleEditState());
+        } else {
+          alert('error')
+        }
       } catch (error) {
         console.log(error,'error')
-
-
       }
     }
   };
@@ -115,6 +120,3 @@ const EditProfileContainer: React.FC<{ props: any }> = ({ props }) => {
 
 
 export default EditProfileContainer;
-
-
-
