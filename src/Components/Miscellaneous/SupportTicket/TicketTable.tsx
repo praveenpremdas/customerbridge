@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import DataTable from "react-data-table-component";
 import { Button } from "reactstrap";
 
-const TicketTable = () => {
+const TicketTable = ({ticketData}: any) => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [toggleDelete, setToggleDelete] = useState(false);
   const [data, setData] = useState(SupportTicketData);
@@ -29,7 +29,7 @@ const TicketTable = () => {
           <Button color="danger" onClick={handleDelete}>{DeleteSupportTicket}</Button>
         </div>
       )}
-      <DataTable className="theme-scrollbar" columns={SupportColumnData} data={data} striped={true} pagination selectableRows onSelectedRowsChange={handleRowSelected} clearSelectedRows={toggleDelete} />
+      <DataTable className="theme-scrollbar" columns={SupportColumnData} data={ticketData ? ticketData.tickets : []} striped={true} pagination selectableRows onSelectedRowsChange={handleRowSelected} clearSelectedRows={toggleDelete} />
     </div>
   );
 };

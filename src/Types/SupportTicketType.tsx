@@ -7,8 +7,14 @@ export interface SupportDataType {
     skill: number;
     extn: number;
     email: string;
-    name: string;
-    skillColor:string
+    customer: string;
+    skillColor:string;
+    customerId: string;
+    title: string;
+    status: string;
+    agent: {
+      id: string;
+    }
   }
 
   export interface SkillsDataProp{
@@ -17,7 +23,10 @@ export interface SupportDataType {
   }
   
   export interface ImageDataProp{
-    image:string;
     title:string
+  }
+
+  export interface ViewDataProp{
+    ticketId:string | number
   }
   

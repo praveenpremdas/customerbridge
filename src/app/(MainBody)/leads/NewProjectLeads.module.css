@@ -1,0 +1,129 @@
+/* components/NewProjectLeads.module.css */
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .heading {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .navSection {
+    display: flex; /* Display items in a row */
+    flex-wrap: wrap; /* Wrap items to next line if needed */
+    gap: 10px; /* Space between items */
+    margin-bottom: 20px;
+  }
+  
+  .navItem {
+    position: relative; /* Position relative to place heading correctly */
+    background-color: #f4f4f4;
+    border-radius: 8px; /* Rounded corners */
+    width: 150px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navContent {
+    position: absolute; /* Position count inside the box */
+    bottom: 10px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .itemCount {
+    background-color: #0070f3; /* Blue background for the count */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 16px;
+  }
+  
+  .itemHeading {
+    position: absolute; /* Heading outside the box */
+    top: -20px;
+    font-size: 16px;
+    color: #444;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .leadsList {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .leadItem {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .likelihood {
+    margin-bottom: 15px;
+  }
+  
+  .progressBar {
+    background-color: #eee;
+    border-radius: 4px;
+    height: 10px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .progress {
+    background-color: #4caf50;
+    height: 100%;
+    border-radius: 4px;
+  }
+  
+  .image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .leadDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .leadHeading {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .detailsColumn {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .showMoreButton {
+    margin-top: 15px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .showMoreButton:hover {
+    background-color: #005bb5;
+  }
+  

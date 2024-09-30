@@ -21,6 +21,7 @@ import ThemeCustomizerSlice from "./Reducers/ThemeCustomizerSlice";
 import ToDoSlice from "./Reducers/ToDoSlice";
 import profileReducer from './Reducers/ProfileSlice';
 import customerReducer from "./Reducers/CustomerSclice"
+import customerCommonSlice from "./Reducers/CustomerCommon"
 
 
 const Store = configureStore({
@@ -46,7 +47,8 @@ const Store = configureStore({
     themeCustomizer: ThemeCustomizerSlice,
     addProduct: AddProductSlice,
     profile: profileReducer,
-    customer: customerReducer
+    customer: customerReducer,
+    customerCommon: customerCommonSlice
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

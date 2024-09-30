@@ -20,6 +20,9 @@ const profileSlice = createSlice({
     toggleEditState(state) {
       state.isProfileEditDisabled = !state.isProfileEditDisabled;
     },
+    toggleEditTrue(state) {
+      state.isProfileEditDisabled = true;
+    },
     toggleEditFalse(state) {
       state.isProfileEditDisabled = false;
     },
@@ -33,7 +36,7 @@ const profileSlice = createSlice({
 });
 
 
-export const { toggleEditState, setEditState, toggleEditFalse } = profileSlice.actions;
+export const { toggleEditState, setEditState, toggleEditTrue, toggleEditFalse } = profileSlice.actions;
 
 
 export default profileSlice.reducer;

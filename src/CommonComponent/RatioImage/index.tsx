@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 
 interface Component {
   className?: string;
-  src: string;
+  src: string | undefined;
   alt: string;
   style?:{ height : number }
 }

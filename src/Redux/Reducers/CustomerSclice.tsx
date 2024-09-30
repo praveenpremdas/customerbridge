@@ -120,7 +120,6 @@ const customerSlice = createSlice({
       state.customer = action.payload;
     },
     updateCustomerField(state, action: PayloadAction<{ field: keyof Customer; value: any }>) {
-        console.log(state.customer)
         const { field, value } = action.payload;
         // Use type assertion to update the state field properly
         (state.customer as any)[field] = value;

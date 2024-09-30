@@ -1,9 +1,31 @@
 import { Row, Col, Card, CardBody } from "reactstrap";
 import CountUp from "react-countup";
 import ProfitAndLoss from "./ProfitAndLoss";
-import { TicketData } from "@/Data/Miscellaneous/SupportTicket";
+// import { TicketData } from "@/Data/Miscellaneous/SupportTicket";
 
-const TicketList = () => {
+const TicketList = ({ ticketData }: any) => {
+
+  const TicketData = [
+    {
+      id: 1,
+      title: "Open",
+      num: ticketData?.open,
+      class: "bg-primary",
+    },
+    {
+      id: 2,
+      title: "In Progress",
+      num: ticketData?.inProgress,
+      class: "bg-secondary",
+    },
+    {
+      id: 3,
+      title: "Closed",
+      num: ticketData?.closed,
+      class: "bg-warning",
+    }
+  ];
+
   return (
     <Row>
       {TicketData.map((item, index) => (
@@ -14,10 +36,10 @@ const TicketList = () => {
                 <Col xs="5">
                   <span>{item.title}</span>
                   <h3 className="total-num counter">
-                    <CountUp end={item.num} className="text-dark mb-1" delay={1}/>
+                    <CountUp end={item.num} className="text-dark mb-1" delay={1} />
                   </h3>
                 </Col>
-                <ProfitAndLoss />
+                {/* <ProfitAndLoss /> */}
               </Row>
               <div className="progress-showcase mt-3">
                 <div className="progress sm-progress-bar">

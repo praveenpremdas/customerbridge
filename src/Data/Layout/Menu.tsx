@@ -2,18 +2,31 @@ import { MenuItem } from "@/Types/LayoutTypes";
 
 export const MenuList: MenuItem[] | undefined = [
   {
-    title: "Applications",
+    title: "General",
     lanClass: "lan-8",
     menucontent: "Ready to use Apps",
     Items: [
       {
         title: "Customers",
-        id: 6,
+        id: 1,
         icon: "ecommerce",
         type: "sub",
         active: false,
         children: [
+          { path: "/addcustomer", title: "New", type: "link" },
           { path: "/customers", title: "Customer List", type: "link" },
+        ],
+      },
+      {
+        title: "Tickets",
+        id: 2,
+        icon: "support-tickets",
+        type: "sub",
+        active: false,
+        children: [
+          { path: "/ticket/new_ticket", title: "New", type: "link" },
+          { path: "/ticket/assign_ticket", title: "Assign Ticket", type: "link" },
+          { path: "/ticket", title: "Support Tickets", type: "link" },
         ],
       },
     ]

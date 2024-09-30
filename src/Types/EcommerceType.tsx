@@ -43,7 +43,7 @@ export interface CustomerProfileProps {
 
 
 export interface ProductListTableDataColumnType {
-  image: string;
+  profilePictureUrl: string;
   fullName: string;
   id: string;
   age: number;

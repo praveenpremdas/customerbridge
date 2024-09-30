@@ -1,31 +1,45 @@
-import { SearchTableButton } from "@/Constant";
-import { ProductListTableData, ProductListTableDataColumn } from "@/Data/Application/Ecommerce";
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useCallback } from "react";
 import DataTable from "react-data-table-component";
 import { Card, CardBody, Col, Container, Input, Label, Row } from "reactstrap";
+import { crmAxiosInstance } from "@/utils/axiosInstance"
+import { SearchTableButton } from "@/Constant";
+import { ProductListTableData, ProductListTableDataColumn } from "@/Data/Application/Ecommerce";
 import { CollapseFilterData } from "./CollapseFilterData";
 import { ProductListFilterHeader } from "./ProductListFilterHeader";
-import axios from 'axios';
-
+import { useAppDispatch, useAppSelector } from "@/Redux/Hooks";
+import { updatePagenationPageSize } from "@/Redux/Reducers/CustomerCommon";
 
 const ProductListContainer = () => {
   const [filterText, setFilterText] = useState("");
-  const [filteredItems, setfilteredItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState<any>([]);
+  const [currentPage, setCurrentPage] = useState(1); // Page number starts from 1
+  const [pageSize, setPageSize] = useState(10); // Default page size
+  const dispatch = useAppDispatch();
+  const pagenationPageSize = useAppSelector((state) => state.customerCommon.pagenationPageSize);
 
-
-  const fetch = async () => {
-    const response = await axios.get('http://3.111.179.125:8080/api/customers?page=0&size=10');
-    setfilteredItems(response.data.content);
-    console.log(response,'response')
-  }
-
+  const fetch = async (page: number, size: number) => {
+    try {
+      const response = await crmAxiosInstance.get(`customers?page=${page - 1}&size=${size}`);
+      setFilteredItems(response.data.content);
+      dispatch(updatePagenationPageSize(response.data.totalElements));
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   useEffect(() => {
-    fetch();
-  }, []);
+    fetch(currentPage, pageSize);
+  }, [fetch, currentPage, pageSize, pagenationPageSize]);
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
-  // const filteredItems = ProductListTableData.filter((item) => item.category && item.category.toLowerCase().includes(filterText.toLowerCase()));
+  const handleRowsPerPageChange = (size: number) => {
+    setPageSize(size);
+    setCurrentPage(1); // Reset page to 1 on page size change
+  };
+
   const subHeaderComponentMemo = useMemo(() => {
     return (
       <div className="dataTables_filter d-flex align-items-center">
@@ -34,7 +48,6 @@ const ProductListContainer = () => {
       </div>
     );
   }, [filterText]);
-
 
   return (
     <Container fluid>
@@ -48,7 +61,22 @@ const ProductListContainer = () => {
               </div>
               <div className="list-product">
                 <div className="table-responsive">
-                  <DataTable className="theme-scrollbar" data={filteredItems} columns={ProductListTableDataColumn} striped highlightOnHover pagination selectableRows subHeader subHeaderComponent={subHeaderComponentMemo} />
+                  <DataTable
+                    className="theme-scrollbar"
+                    data={filteredItems}
+                    columns={ProductListTableDataColumn}
+                    striped
+                    highlightOnHover
+                    pagination
+                    paginationServer
+                    paginationTotalRows={pagenationPageSize} // You may want to get the total count from the API
+                    onChangePage={handlePageChange}
+                    onChangeRowsPerPage={handleRowsPerPageChange}
+                    subHeader
+                    subHeaderComponent={subHeaderComponentMemo}
+                    paginationPerPage={pageSize}
+                    paginationRowsPerPageOptions={[10, 20, 30]} // Customize as needed
+                  />
                 </div>
               </div>
             </CardBody>
@@ -59,8 +87,4 @@ const ProductListContainer = () => {
   );
 };
 
-
 export default ProductListContainer;
-
-
-

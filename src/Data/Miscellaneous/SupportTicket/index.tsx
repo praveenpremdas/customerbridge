@@ -1,6 +1,7 @@
 import { ImagePath } from "@/Constant";
-import { ImageDataProp, SkillsDataProp, SupportDataType } from "@/Types/SupportTicketType";
-import { Progress } from "reactstrap";
+import { ImageDataProp, SkillsDataProp, SupportDataType, ViewDataProp } from "@/Types/SupportTicketType";
+import { Input, Progress } from "reactstrap";
+import Link from 'next/link';
 
 export const SupportData = [
   {
@@ -8,49 +9,49 @@ export const SupportData = [
   },
 ];
 
-export const TicketData = [
-  {
-    id: 1,
-    title: "Order",
-    num: 2563,
-    class: "bg-primary",
-  },
-  {
-    id: 2,
-    title: "Pending",
-    num: 8943,
-    class: "bg-secondary",
-  },
-  {
-    id: 3,
-    title: "Running",
-    num: 2500,
-    class: "bg-warning",
-  },
-  {
-    id: 4,
-    title: "Smooth",
-    num: 2060,
-    class: "bg-info",
-  },
-  {
-    id: 5,
-    title: "Done",
-    num: 5600,
-    class: "bg-success",
-  },
-  {
-    id: 6,
-    title: "Cancel",
-    num: 2560,
-    class: "bg-danger",
-  },
-];
+// export const TicketData = [
+//   {
+//     id: 1,
+//     title: "Order",
+//     num: 2563,
+//     class: "bg-primary",
+//   },
+//   {
+//     id: 2,
+//     title: "Pending",
+//     num: 8943,
+//     class: "bg-secondary",
+//   },
+//   {
+//     id: 3,
+//     title: "Running",
+//     num: 2500,
+//     class: "bg-warning",
+//   },
+//   {
+//     id: 4,
+//     title: "Smooth",
+//     num: 2060,
+//     class: "bg-info",
+//   },
+//   {
+//     id: 5,
+//     title: "Done",
+//     num: 5600,
+//     class: "bg-success",
+//   },
+//   {
+//     id: 6,
+//     title: "Cancel",
+//     num: 2560,
+//     class: "bg-danger",
+//   },
+// ];
 
 export const SupportTicketData = [
   {
     id: 1,
-    image:"user/5.jpg",
+    image: "user/5.jpg",
     name: "Airi Satou",
     position: "Accountant",
     salary: "$162,700",
@@ -63,7 +64,7 @@ export const SupportTicketData = [
   },
   {
     id: 2,
-    image:"user/7.jpg",
+    image: "user/7.jpg",
     name: "Ashton Cox",
     position: "Junior Technical Author",
     salary: "$86,000",
@@ -76,7 +77,7 @@ export const SupportTicketData = [
   },
   {
     id: 3,
-    image:"user/6.jpg",
+    image: "user/6.jpg",
     name: "Bradley Greer",
     position: "Software Engineer",
     salary: "$132,000",
@@ -89,7 +90,7 @@ export const SupportTicketData = [
   },
   {
     id: 4,
-    image:"user/11.png",
+    image: "user/11.png",
     name: "Brielle Williamson",
     position: "Integration Specialist",
     salary: "$372,000",
@@ -102,7 +103,7 @@ export const SupportTicketData = [
   },
   {
     id: 5,
-    image:"user/4.jpg",
+    image: "user/4.jpg",
     name: "Caesar Vance",
     position: "Pre-Sales Support",
     salary: "$106,450",
@@ -115,7 +116,7 @@ export const SupportTicketData = [
   },
   {
     id: 6,
-    image:"user/1.jpg",
+    image: "user/1.jpg",
     name: "Cedric Kelly",
     position: "Senior Javascript Developer",
     salary: "$433,060",
@@ -128,7 +129,7 @@ export const SupportTicketData = [
   },
   {
     id: 7,
-    image:"user/9.jpg",
+    image: "user/9.jpg",
     name: "Charde Marshall",
     position: "Regional Director	",
     salary: "$470,600",
@@ -141,7 +142,7 @@ export const SupportTicketData = [
   },
   {
     id: 8,
-    image:"user/8.jpg",
+    image: "user/8.jpg",
     name: "Colleen Hurst",
     position: "Javascript Developer",
     salary: "$205,500",
@@ -154,7 +155,7 @@ export const SupportTicketData = [
   },
   {
     id: 9,
-    image:"user/2.jpg",
+    image: "user/2.jpg",
     name: "Dai Rios",
     position: "Personnel Lead",
     salary: "$217,500",
@@ -167,7 +168,7 @@ export const SupportTicketData = [
   },
   {
     id: 10,
-    image:"user/11.png",
+    image: "user/11.png",
     name: "Garrett Winters",
     position: "Accountant",
     salary: "$170,750",
@@ -180,7 +181,7 @@ export const SupportTicketData = [
   },
   {
     id: 11,
-    image:"user/6.jpg",
+    image: "user/6.jpg",
     name: "Gloria Little",
     position: "Systems Administrator",
     salary: "$237,500",
@@ -193,7 +194,7 @@ export const SupportTicketData = [
   },
   {
     id: 12,
-    image:"user/2.jpg",
+    image: "user/2.jpg",
     name: "Haley Kennedy",
     position: "Senior Marketing Designer",
     salary: "$313,500",
@@ -206,7 +207,7 @@ export const SupportTicketData = [
   },
   {
     id: 13,
-    image:"user/7.jpg",
+    image: "user/7.jpg",
     name: "Herrod Chandler",
     position: "Sales Assistant",
     salary: "$137,500",
@@ -219,7 +220,7 @@ export const SupportTicketData = [
   },
   {
     id: 14,
-    image:"user/11.png",
+    image: "user/11.png",
     name: "Jena Gaines",
     position: "Office Manager",
     salary: "$90,560",
@@ -232,7 +233,7 @@ export const SupportTicketData = [
   },
   {
     id: 15,
-    image:"user/9.jpg",
+    image: "user/9.jpg",
     name: "Jenette Caldwell",
     position: "Development Lead",
     salary: "$345,000",
@@ -245,7 +246,7 @@ export const SupportTicketData = [
   },
   {
     id: 16,
-    image:"user/4.jpg",
+    image: "user/4.jpg",
     name: "Michael Silva",
     position: "Marketing Designer",
     salary: "$198,500",
@@ -258,7 +259,7 @@ export const SupportTicketData = [
   },
   {
     id: 17,
-    image:"user/5.jpg",
+    image: "user/5.jpg",
     name: "Paul Byrd",
     position: "Chief Financial Officer (CFO)",
     salary: "$725,000",
@@ -271,7 +272,7 @@ export const SupportTicketData = [
   },
   {
     id: 18,
-    image:"user/5.jpg",
+    image: "user/5.jpg",
     name: "Quinn Flynn",
     position: "Support Lead",
     salary: "$342,000",
@@ -284,7 +285,7 @@ export const SupportTicketData = [
   },
   {
     id: 19,
-    image:"user/8.jpg",
+    image: "user/8.jpg",
     name: "Rhona Davidson",
     position: "Integration Specialist",
     salary: "$327,900",
@@ -297,7 +298,7 @@ export const SupportTicketData = [
   },
   {
     id: 20,
-    image:"user/10.jpg",
+    image: "user/10.jpg",
     name: "Sonya Frost",
     position: "Software Engineer",
     salary: "$103,600",
@@ -310,7 +311,7 @@ export const SupportTicketData = [
   },
   {
     id: 21,
-    image:"user/7.jpg",
+    image: "user/7.jpg",
     name: "Tatyana Dens",
     position: "Regional Director",
     salary: "$385,750",
@@ -323,7 +324,7 @@ export const SupportTicketData = [
   },
   {
     id: 22,
-    image:"user/1.jpg",
+    image: "user/1.jpg",
     name: "Tiger Nixon",
     position: "System Architect",
     salary: "$320,800",
@@ -336,7 +337,7 @@ export const SupportTicketData = [
   },
   {
     id: 23,
-    image:"user/10.jpg",
+    image: "user/10.jpg",
     name: "Yuri Berry",
     position: "Chief Marketing Officer (CMO)",
     salary: "$675,000",
@@ -349,66 +350,60 @@ export const SupportTicketData = [
   },
 ];
 
-const SkillsData:React.FC<SkillsDataProp> = ({ value, skillColor }) => {
+const SkillsData: React.FC<SkillsDataProp> = ({ value, skillColor }) => {
   return (
-      <div className="progress-showcase" style={{ width: "86px" }}>
-        <Progress className="sm-progress-bar" value={value} color={skillColor} />
-      </div>
+    <div className="progress-showcase" style={{ width: "86px" }}>
+      <Progress className="sm-progress-bar" value={value} color={skillColor} />
+    </div>
   );
 };
 
-const ImageData:React.FC<ImageDataProp> = ({ image, title }) => {
+const ImageData: React.FC<ImageDataProp> = ({ title }) => {
   return (
-      <div className="d-flex">
-        <img className="rounded-circle img-30 me-3" src={`${ImagePath}/${image}`} alt="Generic placeholder image" />
-        <div className="flex-grow-1 align-self-center">
-          <div>{title}</div>
-        </div>
+    <div className="d-flex">
+      {/* <img className="rounded-circle img-30 me-3" src={`${ImagePath}/${image}`} alt="Generic placeholder image" /> */}
+      <div className="flex-grow-1 align-self-center">
+        <div>{title}</div>
       </div>
+    </div>
+  );
+};
+
+const ViewButton: React.FC<ViewDataProp> = ({ ticketId }) => {
+  return (
+    <div className="d-flex">
+      <div className="flex-grow-1 align-self-center">
+        <Link href={`/ticket/` + ticketId}>
+          <div>View</div>
+        </Link>
+      </div>
+    </div>
   );
 };
 
 export const SupportColumnData = [
   {
-    name: "Image",
-    cell: (row:SupportDataType) => <ImageData image={row.image} title={row.name}/>,
+    name: "Customer",
+    cell: (row: SupportDataType) => <ImageData title={row.customer} />,
     sortable: true,
     center: false,
   },
   {
-    name: "Position",
-    selector: (row:SupportDataType) => row["position"],
+    name: "Title",
+    selector: (row: SupportDataType) => row["title"],
     sortable: true,
     center: true,
   },
   {
-    name: "Salary",
-    selector: (row:SupportDataType) => row["salary"],
+    name: "Status",
+    selector: (row: SupportDataType) => row["status"],
     sortable: true,
     center: true,
   },
   {
-    name: "Office",
-    selector: (row:SupportDataType) => row["office"],
+    name: "View",
+    selector: (row: SupportDataType) => <ViewButton ticketId={row.id} />,
     sortable: true,
     center: true,
-  },
-  {
-    name: "Skill",
-    cell: (row:SupportDataType) => <SkillsData value={row.skill} skillColor={row.skillColor} />,
-    sortable: true,
-    center: true,
-  },
-  {
-    name: "Extn",
-    selector: (row: SupportDataType) => row["extn"],
-    sortable: true,
-    center: true,
-  },
-  {
-    name: "Email",
-    selector: (row: SupportDataType) => row["email"],
-    sortable: true,
-    center: true,
-  },
+  }
 ];

@@ -6,7 +6,11 @@ import { Card, CardBody, Col, Container, Row } from "reactstrap";
 import TicketList from "./TicketList";
 import TicketTable from "./TicketTable";
 
-const SupportTicketContainer = () => {
+interface SupportTicketContainerProps {
+  ticketData: any;
+}
+
+const SupportTicketContainer: React.FC<SupportTicketContainerProps> = ({ ticketData }) => {
   return (
     <Container fluid>
       <Row>
@@ -14,8 +18,9 @@ const SupportTicketContainer = () => {
           <Card>
             <CommonCardHeader title={SupportTicketList} span={SupportData} headClass="card-no-border pb-0" />
             <CardBody>
-              <TicketList />
-              <TicketTable />
+              {/* Pass ticketData to TicketList and TicketTable as props */}
+              <TicketList ticketData={ticketData} />
+              <TicketTable ticketData={ticketData} />
             </CardBody>
           </Card>
         </Col>
